@@ -1,0 +1,237 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: #f0f0f0;
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-text-size-adjust: 100%;
+}
+
+#fallingCanvas {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100dvh; /* Fix для iPhone */
+  scroll-snap-align: start; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 200px rgba(255, 255, 255, 0.05);
+}
+
+.cover, .page {
+  position: absolute; /* Fix для iPhone */
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  z-index: 10;
+  text-align: center;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: flex;
+}
+
+.nav-btn {
+  position: absolute;
+  bottom: 0%;
+  padding: 6px 15px;
+  font-size: 12px;
+  color: black;
+  background: white;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+#prevBtn, #prevBtn2, #prevBtn3 {
+  left: 5%;
+}
+
+#nextBtn, #nextBtn2 {
+  right: 10%;
+}
+
+@font-face {
+  font-family: 'Rosarium';
+  src: url('ofont.ru_Rosarium.ttf') format('truetype');
+}
+
+.title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Rosarium', sans-serif;
+  color: black;
+  font-size: 85px;
+  margin-bottom: 20px;
+}
+
+@font-face {
+  font-family: 'Trender';
+  src: url('ofont.ru_Trender.ttf') format('truetype');
+}
+
+.chapter-title {
+  font-family: 'Trender', sans-serif;
+  color: black;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+}
+
+@font-face {
+  font-family: 'Uncage';
+  src: url('ofont.ru_Uncage.ttf') format('truetype');
+}
+
+.subtitle {
+  font-family: 'Uncage', sans-serif;
+  color: black;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'Antique';
+  src: url('ofont.ru_Uk_Antique.ttf') format('truetype');
+}
+
+.content {
+  font-family: 'Antique', sans-serif;
+  color: black;
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  font-size: 18px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.timer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-container {
+  text-align: center;
+  max-width: 80vw;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.holiday-title {
+  position: absolute;
+  top: 15%;
+  left: 45%;
+  transform: translateX(-50%);
+  font-size: 4vw;
+  color: #ff4081;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(212, 57, 109, 0.8);
+  text-align: center;
+  max-width: 90%;
+}
+
+@font-face {
+  font-family: 'Bleeker';
+  src: url('BleekerCyrillic.ttf') format('truetype');
+}
+
+.holiday-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bleeker', sans-serif;
+  font-size: 1.8vw;
+  color: #f0f0f0;
+  max-width: 80%;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.holiday-messagee {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4vw;
+  color: #00ff22;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(112, 242, 52, 0.8);
+  text-align: center;
+  width: 100%;
+}
+
+.scroll-down {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  animation: bounceArrow 1.5s infinite;
+  transition: opacity 0.3s;
+  color: #f8bbd0;
+}
+
+.scroll-down:hover {
+  opacity: 0.75;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .content {
+    font-size: 14px;
+  }
+}
+
+/* Fix для iPhone */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    scroll-snap-type: none;
+  }
+}
